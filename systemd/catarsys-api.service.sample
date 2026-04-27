@@ -1,0 +1,20 @@
+[Unit]
+Description=CatarSys API Node.js
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/var/www/catarsys-api
+ExecStart=/usr/bin/npm start
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+Environment=PORT=3000
+
+# Si quieres leer directamente del archivo .env sin exportarlo manualmente,
+# descomenta esta línea y ajusta la ruta:
+# EnvironmentFile=/var/www/catarsys-api/.env
+
+[Install]
+WantedBy=multi-user.target
